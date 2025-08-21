@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserStatusController;
 
 Route::get("/", function () {
     return view("welcome");
 });
 
-use App\Http\Controllers\TelegramWebhookController;
-
-Route::post('/telegram/webhook', [TelegramWebhookController::class, 'handle']);
+Route::get('/users', [UserStatusController::class, 'index'])->name('users.index');
+Route::put('/users/{user}', [UserStatusController::class, 'update'])->name('users.update');

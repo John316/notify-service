@@ -13,12 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         User::factory()->create([
             "name" => "Test User",
             "email" => "test@example.com",
-            'telegram_id' => '123456789',
+            'telegram_id' => '415796072',
             'subscribed' => true,
         ]);
     }

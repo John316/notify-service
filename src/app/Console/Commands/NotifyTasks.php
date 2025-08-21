@@ -14,7 +14,8 @@ class NotifyTasks extends Command
 
     public function handle()
     {
-        $tasks = Http::get('https://jsonplaceholder.typicode.com/todos')->json();
+        // receive list of the tasks from some api
+        $tasks = Http::get('https://some.api.com/todos')->json();
 
         $activeTasks = collect($tasks)
             ->where('completed', false)
@@ -24,7 +25,7 @@ class NotifyTasks extends Command
         $users = User::where('subscribed', true)->get();
 
         foreach ($users as $user) {
-            $message = "Активные задачи:\n";
+            $message = "Active tasks:\n";
             foreach ($activeTasks as $task) {
                 $message .= "- {$task['title']}\n";
             }
