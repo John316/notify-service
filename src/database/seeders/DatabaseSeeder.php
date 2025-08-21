@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             "name" => "Test User",
             "email" => "test@example.com",
+            'telegram_id' => '123456789',
+            'subscribed' => true,
         ]);
     }
 }
